@@ -1,154 +1,113 @@
 "use client"
 
 import type React from "react"
+
 import Image from "next/image"
 import Link from "next/link"
+import { useMemo } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Send } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 
-const allKeywords = [
-  "cybernetics",
-  "hope",
-  "ambiguous design systems",
-  "value discovery network",
-  "economic media",
-  "communal computing",
-  "ketamine",
-  "emotive interactions",
-  "computational media",
-  "tools for thought",
-  "cryptographic ownership",
-  "post-capitalist economic design",
-  "solidarity protocols",
-  "algorithmic justice",
-  "decentralized autonomy",
-  "artivist collectives",
-  "mutual aid ledgers",
-  "regenerative finance",
-  "cooperative AI",
-  "sexual harm prevention crypto",
-  "techno-utopian dreaming",
-  "mesh network commons",
-  "open-source cooperativism",
-  "intersectional futurism",
-  "data soverignty",
-  "post collapse solarpunk",
-  "radical transparency",
-  "liquidity of care",
-  "civic hacktivism",
-  "post-cap-work ideation",
-  "community staking",
-  "tokenized solidarity",
-  "algorithmic mutualism",
-  "self sustanence logistics",
-  "networked abolition",
-  "commons utilities",
-  "third space tokenization",
-  "distributed decision tooling",
-  "divergent cooperative design",
-  "privacy normalization",
-  "eco-social computation",
-  "decolonial algorithms",
-  "participatory ontology",
-  "post crypto trustless culture",
-  "mindful machine learning",
-  "cooperative clouds",
-  "glitch aesthetics",
-  "zero-knowledge futures",
-  "peer-to-peer governance",
-  "distributed ledgers",
-  "smart contract commons",
-  "emergent behavior",
-  "complex adaptive systems",
-  "autopoiesis",
-  "computational governance",
-  "gift economies",
-  "circular economies",
-  "platform cooperativism",
-  "decommodification",
-  "universal basic assets",
-  "collective intelligence",
-  "stigmergic collaboration",
-  "consensus mechanics",
-  "participatory budgeting",
-  "digital tribes",
-  "counter-surveillance",
-  "data unions",
-  "algorithmic accountability",
-  "digital sovereignty",
-  "speculative design",
-  "ontological design",
-  "hyperstitional vectors",
-  "xenofeminist tech",
-  "critical engineering",
-  "radical imagination",
-  "generative aesthetics",
-  "bio-art experiments",
-  "tactical media",
-  "net-art revival",
-  "collective sensemaking",
-  "embodied cognition",
-  "psychedelic cybernetics",
-  "protocol-based sociality",
-  "fugitive planning",
-  "feral systems",
+const keywords = [
+  "Cybernetics",
+  "Decentralization",
+  "Web3",
+  "Post-capitalism",
+  "DAOs",
+  "ReFi",
+  "Solarpunk",
+  "Governance",
+  "Tokenomics",
+  "Privacy",
+  "ZK",
+  "Cryptography",
+  "Automation",
+  "Commons",
+  "P2P",
+  "Network States",
+  "Digital Art",
+  "NFTs",
+  "Smart Contracts",
+  "Oracles",
+  "DeSci",
+  "Futarchy",
+  "Stigmergy",
+  "E-governance",
+  "Liquid Democracy",
+  "Holacracy",
+  "Sociocracy",
+  "Game Theory",
+  "Mechanism Design",
+  "Algorithmic Governance",
+  "Prediction Markets",
+  "Reputation Systems",
+  "Digital Identity",
+  "Self-Sovereign Identity",
+  "Mesh Networks",
+  "Edge Computing",
+  "Federated Learning",
+  "Swarm Intelligence",
+  "Bio-hacking",
+  "Transhumanism",
+  "Circular Economy",
+  "Regenerative Agriculture",
+  "Local Currencies",
+  "Mutual Credit",
+  "Time Banking",
+  "Gift Economy",
+  "Open Source",
+  "Open Hardware",
+  "Data Unions",
+  "Co-ownership",
+  "Platform Cooperativism",
+  "Digital Nomadism",
+  "Radical Candor",
+  "Non-violent Communication",
 ]
 
 const galleryImages = [
-  { src: "/CCG24 Photos 32.jpg", alt: "Workshop by the river" },
-  { src: "/photo_2024-09-24 11.56.50.jpeg", alt: "People playing a card game" },
-  { src: "/reichenau nature.jpg", alt: "A scenic view of a lake with mountains in the background." },
-  { src: "/photo_2024-09-24 11.59.37.jpeg", alt: "Wood-fired hot tub" },
-  { src: "/CCG24 Photos 1.jpg", alt: "A group of people gathered in a cozy room with a fireplace." },
-  { src: "/photo_2024-09-24 11.55.05.jpeg", alt: "Person sitting by the river" },
-  { src: "/river conference.jpg", alt: "People sitting on rocks by a river during a discussion." },
-  { src: "/CCG24 Photos 13.jpg", alt: "Street view of the venue" },
-  { src: "/statue garden.jpg", alt: "A serene garden with statues and lush greenery." },
-  { src: "/CCG24 Photos 28.jpg", alt: "People walking in a green valley" },
-  { src: "/CCG24 Photos 12.jpg", alt: "A person presenting to a group in an outdoor setting." },
+  { src: "/CCG24 Photos 1.jpg", alt: "A group of people sitting on a riverbank during a conference." },
+  { src: "/CCG24 Photos 12.jpg", alt: "A person speaking to a group in a sunlit room." },
+  { src: "/CCG24 Photos 13.jpg", alt: "A green classic car parked on a cobblestone street in a village." },
+  { src: "/CCG24 Photos 28.jpg", alt: "Two people walking across a lush green field towards a forest." },
+  { src: "/CCG24 Photos 32.jpg", alt: "A casual gathering of people by a river with bicycles." },
+  { src: "/photo_2024-09-24 11.55.05.jpeg", alt: "A person sitting by a stream in a tranquil natural setting." },
+  { src: "/photo_2024-09-24 11.56.50.jpeg", alt: "Four people playing a card game at a table." },
+  { src: "/photo_2024-09-24 11.59.37.jpeg", alt: "A person presenting to a group in an informal outdoor setting." },
+  { src: "/reichenau nature.jpg", alt: "A scenic view of the Reichenau landscape with mountains and trees." },
+  { src: "/river conference.jpg", alt: "Attendees of a conference gathered by a rocky river." },
+  { src: "/statue garden.jpg", alt: "A peaceful garden with statues and greenery." },
 ]
 
-const rowOneImages = galleryImages.slice(0, 6)
-const rowTwoImages = galleryImages.slice(galleryImages.length - 6)
+const topRowImages = galleryImages.slice(0, 6)
+const bottomRowImages = galleryImages.slice(5)
 
-const ticketTiers = [
-  {
-    name: "Early Bird",
-    deadline: "by July 5th",
-    price: "€150.00",
-  },
-  {
-    name: "Standard",
-    deadline: "by August 5th",
-    price: "€200.00",
-  },
-  {
-    name: "Last Minute",
-    deadline: "by August 23rd",
-    price: "€250.00",
-  },
-]
+const KeywordOverlay = () => {
+  const positions = useMemo(() => {
+    return keywords.map(() => ({
+      x: Math.random() * 95,
+      y: Math.random() * 95,
+      size: Math.random() * (16 - 10) + 10,
+      rotation: Math.random() * 90 - 45,
+    }))
+  }, [])
 
-const SprawlingKeywordsOverlay = ({ keywords }: { keywords: string[] }) => {
   return (
-    <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-      <div className="relative w-full h-full">
-        {keywords.map((word, index) => {
-          const style = {
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            transform: `translate(-50%, -50%) rotate(${Math.random() * 90 - 45}deg)`,
-            fontSize: `${Math.random() * 0.75 + 0.75}rem`,
-            opacity: Math.random() * 0.2 + 0.1,
-          }
-          return (
-            <span key={index} className="absolute whitespace-nowrap font-mono uppercase text-blue-300/70" style={style}>
-              {word}
-            </span>
-          )
-        })}
-      </div>
+    <div className="absolute inset-0 z-0 overflow-hidden">
+      {keywords.map((keyword, i) => (
+        <span
+          key={i}
+          className="absolute text-white/40"
+          style={{
+            left: `${positions[i].x}%`,
+            top: `${positions[i].y}%`,
+            fontSize: `${positions[i].size}px`,
+            transform: `rotate(${positions[i].rotation}deg)`,
+          }}
+        >
+          {keyword}
+        </span>
+      ))}
     </div>
   )
 }
@@ -156,30 +115,26 @@ const SprawlingKeywordsOverlay = ({ keywords }: { keywords: string[] }) => {
 const ImageMarquee = ({
   images,
   direction = "left",
-}: { images: { src: string; alt: string }[]; direction?: "left" | "right" }) => {
+}: { images: typeof galleryImages; direction?: "left" | "right" }) => {
   const animationClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right"
-  const duration = images.length * 8 // ~8s per image for a slow scroll
-
   return (
     <div
-      className="w-full overflow-x-hidden group"
-      style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
+      className="relative w-full overflow-hidden group"
+      style={{ maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)" }}
     >
       <div
-        className={`flex w-max gap-4 py-2 group-hover:[animation-play-state:paused] ${animationClass}`}
-        style={{ "--duration": `${duration}s` } as React.CSSProperties}
+        className={`flex gap-4 ${animationClass} group-hover:[animation-play-state:paused]`}
+        style={{ "--duration": "80s" } as React.CSSProperties}
       >
         {[...images, ...images].map((image, index) => (
-          <div key={`${direction}-${index}`} className="w-auto h-[200px] shrink-0">
-            <div className="rounded-lg overflow-hidden aspect-[3/2] shadow-lg h-full">
-              <Image
-                src={image.src || "/placeholder.svg"}
-                alt={image.alt}
-                width={300}
-                height={200}
-                className="object-cover w-full h-full"
-              />
-            </div>
+          <div key={index} className="relative h-48 w-64 flex-shrink-0">
+            <Image
+              src={image.src || "/placeholder.svg"}
+              alt={image.alt}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
           </div>
         ))}
       </div>
@@ -187,77 +142,106 @@ const ImageMarquee = ({
   )
 }
 
-export default function CryptoCommonsPage() {
+const TelegramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M22 2L11 13" />
+    <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+  </svg>
+)
+
+export default function HomePage() {
   return (
-    <div className="bg-background text-foreground min-h-screen relative">
-      <div className="fixed inset-0 z-0">
-        <Image
-          src="/valley.jpeg"
-          alt="Scenic valley with sun flare over mountains"
-          fill
-          className="object-cover"
-          quality={100}
-        />
-        <div className="absolute inset-0 bg-blue-950/60" />
-      </div>
-
-      <SprawlingKeywordsOverlay keywords={allKeywords} />
-
-      <main className="relative z-20 container mx-auto px-4 py-16 sm:py-24 flex flex-col gap-16 sm:gap-24">
-        <div className="flex flex-col items-center text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
-            Crypto Commons Gathering
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg sm:text-xl text-gray-200 drop-shadow-md">
-            The fifth edition brings together hackers, builders, visionaries, and artists to imagine desired futures,
-            probe regenerative forms of living, and playfully explore commons practices.
+    <div className="relative min-h-screen w-full overflow-x-hidden">
+      <Image
+        src="/valley.jpeg"
+        alt="A scenic valley with mountains in the background"
+        layout="fill"
+        objectFit="cover"
+        className="z-[-1]"
+      />
+      <KeywordOverlay />
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen bg-black/30 text-white p-4 md:p-8">
+        <div className="text-center space-y-4 mb-12">
+          <h1 className="text-4xl md:text-6xl font-bold">Crypto Commons Gathering</h1>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto">
+            An unconference for builders, researchers, and stewards of the digital commons. Join us for a week of
+            co-living, co-working, and co-creating in the Austrian Alps.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href="https://t.me/+gcO15eVjr4s2Njc8" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white text-lg px-8 py-6">
-                <Send className="mr-2 h-5 w-5" />
-                Join the Telegram
-              </Button>
-            </Link>
-            <Link href="/directions">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-gray-400 text-gray-200 hover:bg-white/10 hover:text-white bg-transparent text-lg px-8 py-6"
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <Button asChild size="lg" className="bg-blue-500 hover:bg-blue-600 text-white text-lg px-8 py-6">
+              <a
+                href="https://t.me/+gcO15eVjr4s2Njc8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
               >
-                View Directions
-              </Button>
-            </Link>
+                <TelegramIcon />
+                Join the Telegram
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="text-lg px-8 py-6 border-white/50 text-white bg-black/20 hover:bg-white/10"
+            >
+              <Link href="/directions">View Directions</Link>
+            </Button>
           </div>
         </div>
 
-        <section className="w-full flex flex-col gap-4">
-          <ImageMarquee images={rowOneImages} direction="left" />
-          <ImageMarquee images={rowTwoImages} direction="right" />
-        </section>
+        <div className="w-full space-y-4 my-12">
+          <ImageMarquee images={topRowImages} direction="left" />
+          <ImageMarquee images={bottomRowImages} direction="right" />
+        </div>
 
-        <section className="w-full flex flex-col items-center gap-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">Get Your Tickets</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
-            {ticketTiers.map((ticket) => (
-              <Card key={ticket.name} className="bg-white/10 border-gray-400/50 text-white">
-                <CardHeader>
-                  <CardTitle className="text-2xl">{ticket.name}</CardTitle>
-                  <CardDescription className="text-gray-300">{ticket.deadline}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">{ticket.price}</p>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full" variant="secondary">
-                    Purchase
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+        <div className="w-full max-w-5xl mx-auto py-12">
+          <h2 className="text-3xl font-bold text-center mb-8">Tickets</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="bg-white/10 border-white/20 text-white">
+              <CardHeader>
+                <CardTitle>Early Bird</CardTitle>
+                <CardDescription className="text-white/80">by July 5th</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-4xl font-bold">€150.00</p>
+                <Button className="w-full bg-blue-500 hover:bg-blue-600">Purchase</Button>
+              </CardContent>
+            </Card>
+            <Card className="bg-white/10 border-white/20 text-white">
+              <CardHeader>
+                <CardTitle>Standard</CardTitle>
+                <CardDescription className="text-white/80">by August 5th</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-4xl font-bold">€200.00</p>
+                <Button className="w-full bg-blue-500 hover:bg-blue-600">Purchase</Button>
+              </CardContent>
+            </Card>
+            <Card className="bg-white/10 border-white/20 text-white">
+              <CardHeader>
+                <CardTitle>Last Minute</CardTitle>
+                <CardDescription className="text-white/80">by August 23rd</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-4xl font-bold">€250.00</p>
+                <Button className="w-full bg-blue-500 hover:bg-blue-600">Purchase</Button>
+              </CardContent>
+            </Card>
           </div>
-        </section>
-      </main>
+        </div>
+      </div>
     </div>
   )
 }
