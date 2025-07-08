@@ -200,6 +200,11 @@ export default function CryptoCommonsPage() {
             probe regenerative forms of living, and playfully explore commons practices.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link href="#tickets-section">
+              <Button size="lg" className="bg-white text-black hover:bg-gray-200 text-lg px-8 py-6">
+                Get Tickets
+              </Button>
+            </Link>
             <Link href="https://t.me/+gcO15eVjr4s2Njc8" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
@@ -222,7 +227,12 @@ export default function CryptoCommonsPage() {
           </div>
         </div>
 
-        <section className="w-full flex flex-col items-center gap-8">
+        <section className="w-full flex flex-col gap-4">
+          <ImageMarquee images={rowOneImages} direction="left" />
+          <ImageMarquee images={rowTwoImages} direction="right" />
+        </section>
+
+        <section id="tickets-section" className="w-full flex flex-col items-center gap-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">Get Your Tickets</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
             {ticketTiers.map((ticket) => (
@@ -244,11 +254,6 @@ export default function CryptoCommonsPage() {
               </Card>
             ))}
           </div>
-        </section>
-
-        <section className="w-full flex flex-col gap-4">
-          <ImageMarquee images={rowOneImages} direction="left" />
-          <ImageMarquee images={rowTwoImages} direction="right" />
         </section>
       </main>
     </div>
