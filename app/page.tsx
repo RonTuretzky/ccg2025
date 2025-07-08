@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Send } from "lucide-react"
+import { Calendar, MapPin, Send } from "lucide-react"
 import { SprawlingKeywordsOverlay } from "@/components/sprawling-keywords-overlay"
 
 const allKeywords = [
@@ -191,6 +191,16 @@ export default function CryptoCommonsPage() {
             The fifth edition brings together hackers, builders, visionaries, and artists to imagine desired futures,
             probe regenerative forms of living, and playfully explore commons practices.
           </p>
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-2 text-gray-200 text-lg">
+            <div className="flex items-center gap-2">
+              <Calendar className="h-5 w-5" />
+              <span>August 24-29</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="h-5 w-5" />
+              <span>Reichenau an der Rax, Austria</span>
+            </div>
+          </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="#tickets-section">
               <Button size="lg" className="bg-white text-black hover:bg-gray-200 text-lg px-8 py-6">
