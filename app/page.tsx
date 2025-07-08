@@ -1,8 +1,11 @@
 "use client"
 
+import type React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Send } from "lucide-react"
 
 const allKeywords = [
   "cybernetics",
@@ -95,10 +98,36 @@ const allKeywords = [
 const galleryImages = [
   { src: "/CCG24 Photos 32.jpg", alt: "Workshop by the river" },
   { src: "/photo_2024-09-24 11.56.50.jpeg", alt: "People playing a card game" },
+  { src: "/reichenau nature.jpg", alt: "A scenic view of a lake with mountains in the background." },
   { src: "/photo_2024-09-24 11.59.37.jpeg", alt: "Wood-fired hot tub" },
+  { src: "/CCG24 Photos 1.jpg", alt: "A group of people gathered in a cozy room with a fireplace." },
   { src: "/photo_2024-09-24 11.55.05.jpeg", alt: "Person sitting by the river" },
+  { src: "/river conference.jpg", alt: "People sitting on rocks by a river during a discussion." },
   { src: "/CCG24 Photos 13.jpg", alt: "Street view of the venue" },
+  { src: "/statue garden.jpg", alt: "A serene garden with statues and lush greenery." },
   { src: "/CCG24 Photos 28.jpg", alt: "People walking in a green valley" },
+  { src: "/CCG24 Photos 12.jpg", alt: "A person presenting to a group in an outdoor setting." },
+]
+
+const rowOneImages = galleryImages.slice(0, 6)
+const rowTwoImages = galleryImages.slice(galleryImages.length - 6)
+
+const ticketTiers = [
+  {
+    name: "Early Bird",
+    deadline: "by July 5th",
+    price: "€150.00",
+  },
+  {
+    name: "Standard",
+    deadline: "by August 5th",
+    price: "€200.00",
+  },
+  {
+    name: "Last Minute",
+    deadline: "by August 23rd",
+    price: "€250.00",
+  },
 ]
 
 const SprawlingKeywordsOverlay = ({ keywords }: { keywords: string[] }) => {
@@ -110,8 +139,8 @@ const SprawlingKeywordsOverlay = ({ keywords }: { keywords: string[] }) => {
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
             transform: `translate(-50%, -50%) rotate(${Math.random() * 90 - 45}deg)`,
-            fontSize: `${Math.random() * 0.75 + 0.75}rem`, // 0.75rem to 1.5rem
-            opacity: Math.random() * 0.2 + 0.1, // 0.1 to 0.3
+            fontSize: `${Math.random() * 0.75 + 0.75}rem`,
+            opacity: Math.random() * 0.2 + 0.1,
           }
           return (
             <span key={index} className="absolute whitespace-nowrap font-mono uppercase text-blue-300/70" style={style}>
@@ -119,6 +148,40 @@ const SprawlingKeywordsOverlay = ({ keywords }: { keywords: string[] }) => {
             </span>
           )
         })}
+      </div>
+    </div>
+  )
+}
+
+const ImageMarquee = ({
+  images,
+  direction = "left",
+}: { images: { src: string; alt: string }[]; direction?: "left" | "right" }) => {
+  const animationClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right"
+  const duration = images.length * 8 // ~8s per image for a slow scroll
+
+  return (
+    <div
+      className="w-full overflow-x-hidden group"
+      style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
+    >
+      <div
+        className={`flex w-max gap-4 py-2 group-hover:[animation-play-state:paused] ${animationClass}`}
+        style={{ "--duration": `${duration}s` } as React.CSSProperties}
+      >
+        {[...images, ...images].map((image, index) => (
+          <div key={`${direction}-${index}`} className="w-auto h-[200px] shrink-0">
+            <div className="rounded-lg overflow-hidden aspect-[3/2] shadow-lg h-full">
+              <Image
+                src={image.src || "/placeholder.svg"}
+                alt={image.alt}
+                width={300}
+                height={200}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
@@ -150,47 +213,49 @@ export default function CryptoCommonsPage() {
             probe regenerative forms of living, and playfully explore commons practices.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="secondary">
-              Apply to Join
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-gray-400 text-gray-200 hover:bg-white/10 hover:text-white bg-transparent"
-            >
-              Learn More
-            </Button>
+            <Link href="https://t.me/+gcO15eVjr4s2Njc8" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white text-lg px-8 py-6">
+                <Send className="mr-2 h-5 w-5" />
+                Join the Telegram
+              </Button>
+            </Link>
+            <Link href="/directions">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-gray-400 text-gray-200 hover:bg-white/10 hover:text-white bg-transparent text-lg px-8 py-6"
+              >
+                View Directions
+              </Button>
+            </Link>
           </div>
         </div>
 
-        <section className="w-full max-w-6xl mx-auto">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {galleryImages.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <div className="rounded-lg overflow-hidden aspect-[3/2] shadow-lg">
-                      <Image
-                        src={image.src || "/placeholder.svg"}
-                        alt={image.alt}
-                        width={600}
-                        height={400}
-                        className="object-cover w-full h-full"
-                      />
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="text-white bg-black/30 hover:bg-black/50 border-white/40" />
-            <CarouselNext className="text-white bg-black/30 hover:bg-black/50 border-white/40" />
-          </Carousel>
+        <section className="w-full flex flex-col gap-4">
+          <ImageMarquee images={rowOneImages} direction="left" />
+          <ImageMarquee images={rowTwoImages} direction="right" />
+        </section>
+
+        <section className="w-full flex flex-col items-center gap-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">Get Your Tickets</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
+            {ticketTiers.map((ticket) => (
+              <Card key={ticket.name} className="bg-white/10 border-gray-400/50 text-white">
+                <CardHeader>
+                  <CardTitle className="text-2xl">{ticket.name}</CardTitle>
+                  <CardDescription className="text-gray-300">{ticket.deadline}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-4xl font-bold">{ticket.price}</p>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full" variant="secondary">
+                    Purchase
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </section>
       </main>
     </div>
