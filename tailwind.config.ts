@@ -20,9 +20,10 @@ const config = {
     },
     extend: {
       fontFamily: {
-        cooper: ["CooperBlack", "sans-serif"],
+        sans: ["Arial", "Helvetica", "sans-serif"],
       },
       colors: {
+        "accent-blue": "#0000ff",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -59,8 +60,8 @@ const config = {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "var(--radius)",
+        sm: "var(--radius)",
       },
       keyframes: {
         "accordion-down": {

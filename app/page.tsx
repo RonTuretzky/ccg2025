@@ -139,7 +139,7 @@ const ImageMarquee = ({
   direction = "left",
 }: { images: { src: string; alt: string }[]; direction?: "left" | "right" }) => {
   const animationClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right"
-  const duration = images.length * 8 // ~8s per image for a slow scroll
+  const duration = images.length * 4 // Faster scroll
 
   return (
     <div
@@ -147,12 +147,12 @@ const ImageMarquee = ({
       style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
     >
       <div
-        className={`flex w-max gap-4 py-2 group-hover:[animation-play-state:paused] ${animationClass}`}
+        className={`flex w-max gap-2 py-1 group-hover:[animation-play-state:paused] ${animationClass}`}
         style={{ "--duration": `${duration}s` } as React.CSSProperties}
       >
         {[...images, ...images].map((image, index) => (
           <div key={`${direction}-${index}`} className="w-auto h-[200px] shrink-0">
-            <div className="rounded-lg overflow-hidden aspect-[3/2] shadow-lg h-full">
+            <div className="overflow-hidden aspect-[3/2] shadow-lg h-full">
               <Image
                 src={image.src || "/placeholder.svg"}
                 alt={image.alt}
@@ -186,9 +186,7 @@ export default function CryptoCommonsPage() {
 
       <main className="relative z-20 container mx-auto px-4 py-16 sm:py-24 flex flex-col gap-16 sm:gap-24">
         <div className="flex flex-col items-center text-center">
-          <h1 className="font-cooper text-5xl sm:text-6xl md:text-7xl text-white drop-shadow-lg">
-            Crypto Commons Gathering
-          </h1>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl text-white drop-shadow-lg">Crypto Commons Gathering</h1>
           <p className="mt-4 max-w-3xl text-lg sm:text-xl text-gray-200 drop-shadow-md">
             The fifth edition brings together hackers, builders, visionaries, and artists to imagine desired futures,
             probe regenerative forms of living, and playfully explore commons practices.
@@ -221,7 +219,7 @@ export default function CryptoCommonsPage() {
           </div>
         </div>
 
-        <section className="w-full flex flex-col gap-4">
+        <section className="w-full flex flex-col gap-2">
           <ImageMarquee images={rowOneImages} direction="left" />
           <ImageMarquee images={rowTwoImages} direction="right" />
         </section>
