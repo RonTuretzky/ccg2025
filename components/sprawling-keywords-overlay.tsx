@@ -51,11 +51,7 @@ export const SprawlingKeywordsOverlay = ({ keywords }: { keywords: string[] }) =
       <div className="relative w-full h-full">
         {styles.length > 0 &&
           keywords.map((word, index) => (
-            <span
-              key={index}
-              className="absolute whitespace-nowrap font-mono uppercase text-blue-300/90"
-              style={styles[index]}
-            >
+            <span key={index} className="absolute whitespace-nowrap font-mono text-blue-300/90" style={styles[index]}>
               {word}
             </span>
           ))}
