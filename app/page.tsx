@@ -188,8 +188,8 @@ export default function CryptoCommonsPage() {
         <div className="flex flex-col items-center text-center">
           <h1 className="text-5xl sm:text-6xl md:text-7xl text-white drop-shadow-lg">Crypto Commons Gathering</h1>
           <p className="mt-4 max-w-3xl text-lg sm:text-xl text-gray-200 drop-shadow-md">
-            The fifth edition brings together hackers, builders, visionaries, and artists to imagine desired futures,
-            probe regenerative forms of living, and playfully explore commons practices.
+            The fifth edition is an unconference that brings together hackers, builders, visionaries, and artists to
+            imagine desired futures, probe regenerative forms of living, and playfully explore commons practices.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-2 text-gray-200 text-lg">
             <div className="flex items-center gap-2">
@@ -198,7 +198,17 @@ export default function CryptoCommonsPage() {
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-5 w-5" />
-              <span>Reichenau an der Rax, Austria</span>
+              <span>
+                Reichenau an der Rax, Austria at the{" "}
+                <a
+                  href="https://www.commons-hub.at/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-white"
+                >
+                  Commons Hub
+                </a>
+              </span>
             </div>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -232,6 +242,33 @@ export default function CryptoCommonsPage() {
         <section className="w-full flex flex-col gap-2">
           <ImageMarquee images={rowOneImages} direction="left" />
           <ImageMarquee images={rowTwoImages} direction="right" />
+        </section>
+
+        <section className="w-full flex flex-col items-center">
+          <div className="bg-white/10 border border-gray-400/50 p-8 max-w-4xl text-white rounded-lg">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg mb-6 text-center">
+              What is an Unconference?
+            </h2>
+            <div className="space-y-4 text-lg text-gray-200 drop-shadow-md">
+              <p>
+                An unconference is a participant-driven event format that emphasizes open, flexible, and spontaneous
+                discussions rather than traditional pre-planned presentations. Unlike conventional conferences,
+                unconferences have no predefined agenda or speakers. Instead, attendees collaboratively propose topics,
+                sessions, and activities on the spot, usually at the beginning of the event.
+              </p>
+              <p>
+                Participants vote or self-organize around topics they find most interesting, forming small groups or
+                breakout sessions where discussions, workshops, or hands-on activities take place. The structure
+                encourages active participation, collective knowledge sharing, and informal networking.
+              </p>
+              <p>
+                Unconferences are particularly valuable for fostering creativity, innovation, and community engagement,
+                as everyone is considered equally qualified to contribute, share insights, and guide conversations.
+                Common formats include open space technology, barcamps, and lightning talks, all of which rely heavily
+                on attendee interaction and collective decision-making.
+              </p>
+            </div>
+          </div>
         </section>
 
         <section id="tickets-section" className="w-full flex flex-col items-center gap-8">
