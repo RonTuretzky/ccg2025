@@ -6,13 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Send } from "lucide-react"
-import { Lilita_One } from "next/font/google"
 import { SprawlingKeywordsOverlay } from "@/components/sprawling-keywords-overlay"
-
-const lilitaOne = Lilita_One({
-  subsets: ["latin"],
-  weight: "400",
-})
 
 const allKeywords = [
   "cybernetics",
@@ -192,7 +186,7 @@ export default function CryptoCommonsPage() {
 
       <main className="relative z-20 container mx-auto px-4 py-16 sm:py-24 flex flex-col gap-16 sm:gap-24">
         <div className="flex flex-col items-center text-center">
-          <h1 className={`${lilitaOne.className} text-5xl sm:text-6xl md:text-7xl text-white drop-shadow-lg`}>
+          <h1 className="font-cooper text-5xl sm:text-6xl md:text-7xl text-white drop-shadow-lg">
             Crypto Commons Gathering
           </h1>
           <p className="mt-4 max-w-3xl text-lg sm:text-xl text-gray-200 drop-shadow-md">
