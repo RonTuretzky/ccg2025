@@ -118,16 +118,19 @@ const ticketTiers = [
     name: "Early Bird",
     deadline: "by July 5th",
     price: "€150.00",
+    link: "https://normie.tech/product/twGJwxt3b_nBCo/pay",
   },
   {
     name: "Standard",
     deadline: "by August 5th",
     price: "€200.00",
+    link: "https://normie.tech/product/_S_SSa4fH8d8e7/pay",
   },
   {
     name: "Last Minute",
     deadline: "by August 23rd",
     price: "€250.00",
+    link: "https://normie.tech/product/nH1OjeMlT7t5bY/pay",
   },
 ]
 
@@ -231,9 +234,11 @@ export default function CryptoCommonsPage() {
                   <p className="text-4xl font-bold">{ticket.price}</p>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full" variant="secondary">
-                    Purchase
-                  </Button>
+                  <Link href={ticket.link} target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button className="w-full" variant="secondary">
+                      Purchase
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             ))}
