@@ -4,7 +4,6 @@ import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, MapPin, Send } from "lucide-react"
 import { SprawlingKeywordsOverlay } from "@/components/sprawling-keywords-overlay"
 
@@ -113,27 +112,6 @@ const galleryImages = [
 const rowOneImages = galleryImages.slice(0, 6)
 const rowTwoImages = galleryImages.slice(galleryImages.length - 6)
 
-const ticketTiers = [
-  {
-    name: "Early Bird",
-    deadline: "by July 5th",
-    price: "€150.00",
-    link: "https://normie.tech/product/twGJwxt3b_nBCo/pay",
-  },
-  {
-    name: "Standard",
-    deadline: "by August 5th",
-    price: "€200.00",
-    link: "https://normie.tech/product/_S_SSa4fH8d8e7/pay",
-  },
-  {
-    name: "Last Minute",
-    deadline: "by August 23rd",
-    price: "€250.00",
-    link: "https://normie.tech/product/nH1OjeMlT7t5bY/pay",
-  },
-]
-
 const ImageMarquee = ({
   images,
   direction = "left",
@@ -212,7 +190,11 @@ export default function CryptoCommonsPage() {
             </div>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href="#tickets-section">
+            <Link
+              href="https://docs.google.com/forms/d/1crj5ukURBHMKhVg71cDbikjL2D8BVtNw9C6gl3myG9c/edit"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button size="lg" className="bg-white text-black hover:bg-gray-200 text-lg px-8 py-6">
                 Get Tickets
               </Button>
@@ -268,30 +250,6 @@ export default function CryptoCommonsPage() {
                 on attendee interaction and collective decision-making.
               </p>
             </div>
-          </div>
-        </section>
-
-        <section id="tickets-section" className="w-full flex flex-col items-center gap-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">Get Your Tickets</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
-            {ticketTiers.map((ticket) => (
-              <Card key={ticket.name} className="bg-white/10 border-gray-400/50 text-white">
-                <CardHeader>
-                  <CardTitle className="text-2xl">{ticket.name}</CardTitle>
-                  <CardDescription className="text-gray-300">{ticket.deadline}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-4xl font-bold">{ticket.price}</p>
-                </CardContent>
-                <CardFooter>
-                  <Link href={ticket.link} target="_blank" rel="noopener noreferrer" className="w-full">
-                    <Button className="w-full" variant="secondary">
-                      Purchase
-                    </Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            ))}
           </div>
         </section>
       </main>
