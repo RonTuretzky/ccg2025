@@ -4,7 +4,7 @@ import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin } from "lucide-react"
+import { Calendar, MapPin, Send } from "lucide-react"
 import { SprawlingKeywordsOverlay } from "@/components/sprawling-keywords-overlay"
 
 const allKeywords = [
@@ -197,6 +197,26 @@ export default function CryptoCommonsPage() {
             >
               <Button size="lg" className="bg-white text-black hover:bg-gray-200 text-lg px-8 py-6">
                 Get Tickets
+              </Button>
+            </Link>
+            <Link href="https://t.me/+8a7PooNV6202YjI0" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-blue-500/20 border-blue-400 text-white hover:bg-blue-500/30 text-lg px-8 py-6"
+              >
+                <Send className="mr-2 h-5 w-5" />
+                Join the CCG25 Telegram
+              </Button>
+            </Link>
+            <Link href="https://t.me/+LE14FT39ot81MTEy" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-purple-500/20 border-purple-400 text-white hover:bg-purple-500/30 text-lg px-8 py-6"
+              >
+                <Send className="mr-2 h-5 w-5" />
+                Join the CCA Telegram
               </Button>
             </Link>
             <Link href="/directions">
