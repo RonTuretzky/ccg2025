@@ -82,61 +82,33 @@ export default function DirectionsPage() {
             </p>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-2 text-white">Taking the train to Reichenau an der Rax</h2>
+              <h2 className="text-2xl font-semibold mb-2 text-white">Arriving during the day?</h2>
               <p>
-                The nearest train station to the Hub is Payerbach-Reichenau Bahnof (”station” in German). To plan your
-                trip by train, we suggest using{" "}
+                Here is an ÖBB link with an overview of transport options between Vienna Hauptbahnhof (Main Station) and
+                the Commons Hub:{" "}
                 <a
-                  href="https://www.thetrainline.com/"
+                  href="https://fahrplan.oebb.at/webapp/?context=TP&SID=A%3D1%40O%3DWien%40X%3D16372134%40Y%3D48208547%40U%3D81%40L%3D1190100%40&ZID=A%3D1%40O%3DHirschwang%20an%20der%20Rax%40X%3D15812178%40Y%3D47704746%40U%3D81%40L%3D1131887%40&date=23.08.2025&time=12:00:00&timeSel=1&returnTimeSel=1&journeyProducts=7167&start=1&#!P%7CTP!H%7C885574"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:underline"
                 >
-                  Trainline
+                  LINK
                 </a>
-                .
-              </p>
-              <p className="mt-2">
-                Keep in mind that Payerbach-Reichenau is a smaller station, and it might be more convenient, or faster,
-                to search for trains heading to Vienna or Wiener Neustadt, and then getting a different train to reach
-                Reichenau an der Rax.
-              </p>
-              <p className="mt-2">
-                If you are arriving in Vienna by plane, you can simply take the train route suggested by Maps. Try to
-                avoid the CAT (City Airport Train), unless necessary — it’s a more expensive option that takes just 10
-                minutes less than the standard train.
+                . If you purchase your tickets through ÖBB, you can save some money by buying a combined train+bus
+                ticket. The relevant buses are 341 and 342.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-2 text-white">From Payerbach-Reichenau to the Hub</h2>
-              <p>Once you are at Payerbach-Reichenau train station, getting to the Hub is pretty simple:</p>
-              <ul className="list-disc list-inside space-y-2 mt-2">
-                <li>
-                  <strong>By Bus:</strong> you can buy a bus ticket from the station at{" "}
-                  <a
-                    href="https://shop.vor.at/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline"
-                  >
-                    this link
-                  </a>
-                  . The Bus line is 341, and it should take fifteen minutes at most.
-                </li>
-                <li>
-                  <strong>By Taxi:</strong> if you are planning to arrive later than the last bus, or don’t want to take
-                  it, you can call a taxi. The price should be around €15. You can simply ask to be taken “to the church
-                  in Hirschwang”, since it’s very close to the Hub and a good reference point.
-                  <ul className="list-disc list-inside ml-6 mt-2 space-y-1">
-                    <li>Flackl-Wirt Taxi: +43 26665 2291</li>
-                    <li>Funk-Taxi Fritz Scharfegger: +43 2665 2200</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Walking:</strong> of course, nothing is stopping you from having a healthy walk up to the Hub!
-                  It’s only around 5km, an hour of walking more or less, and most of the route goes through nature.
-                </li>
+              <h2 className="text-2xl font-semibold mb-2 text-white">Arriving in the evening?</h2>
+              <p>
+                If you are arriving after 7pm and/or there are no buses available, try train connections to
+                Payerbach-Reichenau Bahnhof and arrange a taxi from there. Some local taxi service numbers:
+              </p>
+              <ul className="list-disc list-inside space-y-1 mt-2">
+                <li>Flackl Taxi: +43 2666 52084</li>
+                <li>Scharfegger Taxi: +43 2665 2200</li>
+                <li>Kobald Taxi: +43 2666 52461</li>
               </ul>
             </section>
 
