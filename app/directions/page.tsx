@@ -74,6 +74,20 @@ export default function DirectionsPage() {
       <main className="relative z-20 container mx-auto px-4 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto bg-black/50 backdrop-blur-sm p-8 rounded-lg text-white">
           <h1 className="text-4xl font-bold mb-6">Directions</h1>
+          <div className="mb-6 p-4 bg-white/10 rounded-lg">
+            <h2 className="text-xl font-semibold mb-2 text-white">Address</h2>
+            <p className="text-lg text-gray-200">
+              Richard von Schoeller-Straße 92651 Reichenau an der Rax, Austria at the{" "}
+              <a
+                href="https://commonshub.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                Commons Hub
+              </a>
+            </p>
+          </div>
           <div className="space-y-6 text-lg text-gray-200">
             <p>
               The Commons Hub is located in Reichenau an der Rax, a small Austrian village between Vienna and Graz. In
