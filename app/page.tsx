@@ -5,7 +5,6 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Calendar, MapPin, Send } from 'lucide-react'
 import { SprawlingKeywordsOverlay } from "@/components/sprawling-keywords-overlay"
 
@@ -155,55 +154,11 @@ return (
           </div>
         </div>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button size="lg" variant="outline" className="border-white/50 text-gray-200 hover:bg-white/10 hover:text-white bg-transparent text-lg px-8 py-6">
-                About CCG 2025
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-white text-black">
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold mb-4">About CCG 2025</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4 text-sm leading-relaxed">
-                <p>
-                  Among the events held at the Commons Hub, the Crypto Commons Gathering has always held a special place. What began in 2021 as a modest excuse for then-PhD researcher Felix Fritsch to bring together crypto-commons thinkerers from around the world in his own backyard has since evolved into an annual moment of (re)connection and reflection for a growing community, and for the many lived practices and experiments in commoning, degrowth, mutualism and post-capitalist economic worldbuilding it is linked to.
-                </p>
-                <p>
-                  Over the years, CCG has welcomed activists, researchers, hackers, builders, artists, game designers and others, newcomers and "OGs" alike. It has shaped itself as a convivial and fertile space for people and projects working across and beyond web3 to cross-pollinate visions, trajectories and strategies for realising regenerative and cooperative infrastructures.
-                </p>
-                <p>
-                  While remaining an unconference at heart, each edition has reflected the community's shifting priorities and aspirations. In 2025, the gathering enters its fifth year, presenting not only a space to collectively take stock of what crypto commons has become and what it still could be, but also a moment for the growing community to think and organize itself anew.
-                </p>
-                <p>
-                  This year's edition marks a shift in infrastructure as well:
-                </p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>
-                    The Commons Hub has become a full-fledged event hosting organization of its own, co-led by brothers Felix and Emil Fritsch, with exciting expansion and ecovillage plans in the works.
-                  </li>
-                  <li>
-                    The Crypto Commons Association, until 2024 stewarded by Felix Fritsch and Giulio Quarta, is being reimagined as a cooperative vehicle for organising and supporting events at the Hub and elsewhere, introducing and evolving peer-production values and frameworks around them.
-                  </li>
-                </ul>
-                <h3 className="text-xl font-semibold mt-6 mb-3">What to expect</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>
-                    Gather with others in a convivial, off-grid setting in the Austrian countryside, whether you're reconnecting or arriving for the first time.
-                  </li>
-                  <li>
-                    Explore key themes through participant-led sessions, including: regenerative and collaborative finance, MycoFi, community currencies, digital and crypto commons, open source, degrowth, post-capitalism, ecofeminism, multispecies justice, radical game design, speculative fiction, and more.
-                  </li>
-                  <li>
-                    Participate in a fully unconferenced structure, with time and sessions treated as a collectively managed resource. Bring your ideas for talks, roundtables, workshops, prototyping sessions, board game nights, LARPs, etc., immerse yourself, find inspiration, and team up with others.
-                  </li>
-                  <li>
-                    If you're interested, contribute to the ongoing co-creation of the Crypto Commons Association as it transitions into an events-oriented cooperative, a DAO, or something in between.
-                  </li>
-                </ul>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <Link href="/about">
+            <Button size="lg" variant="outline" className="border-white/50 text-gray-200 hover:bg-white/10 hover:text-white bg-transparent text-lg px-8 py-6">
+              About CCG 2025
+            </Button>
+          </Link>
           <Link
             href="https://docs.google.com/forms/d/1crj5ukURBHMKhVg71cDbikjL2D8BVtNw9C6gl3myG9c/edit"
             target="_blank"
@@ -232,65 +187,11 @@ return (
               Directions to the Hub
             </Button>
           </Link>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button size="lg" variant="outline" className="border-white/50 text-gray-200 hover:bg-white/10 hover:text-white bg-transparent text-lg px-8 py-6">
-                Financial Transparency
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-white text-black">
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold mb-4">Financial Transparency</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-6 text-sm leading-relaxed">
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Ticket price</h3>
-                  <p className="mb-2">
-                    <strong>Standard: €200</strong> (Available)
-                  </p>
-                  <p className="mb-3">
-                    Direct link to payment:{" "}
-                    <a 
-                      href="https://normie.tech/product/_S_SSa4fH8d8e7/pay" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-blue-600 underline hover:text-blue-800"
-                    >
-                      https://normie.tech/product/_S_SSa4fH8d8e7/pay
-                    </a>
-                  </p>
-                  <p>
-                    The ticket price is set to cover the venue rental and basic infrastructure, based on expected attendance. No one from the organizing team is being paid from ticket sales, and all are covering their own travel, food and accommodation, until more sustainable structures and future sponsorships are in place.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Accommodation and food</h3>
-                  <p className="mb-4">
-                    Note that accommodation and food are not included in the ticket price. These are provided by the Commons Hub:
-                  </p>
-                  <ul className="space-y-2 mb-4">
-                    <li>
-                      <strong>Food:</strong> €22.50/day average (first 3 days fully catered at €35/day; last 3 days self-organized by participants and the Crypto Commons Association at ~€10/day)
-                    </li>
-                    <li>
-                      <strong>Dorm accommodation:</strong> €37.90/day
-                    </li>
-                  </ul>
-                  <p>
-                    We know these costs add up, especially with travel. If the price is a barrier, please don't hesitate to reach out at{" "}
-                    <a 
-                      href="mailto:cryptocommonsgathering@gmail.com"
-                      className="text-blue-600 underline hover:text-blue-800"
-                    >
-                      cryptocommonsgathering@gmail.com
-                    </a>
-                    . We'll do our best to find a solution together.
-                  </p>
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <Link href="/financial-transparency">
+            <Button size="lg" variant="outline" className="border-white/50 text-gray-200 hover:bg-white/10 hover:text-white bg-transparent text-lg px-8 py-6">
+              Financial Transparency
+            </Button>
+          </Link>
         </div>
       </div>
 
