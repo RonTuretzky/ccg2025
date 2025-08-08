@@ -141,7 +141,7 @@ return (
           <div className="flex items-center gap-2">
             <MapPin className="h-5 w-5" />
             <span>
-              Richard von Schoeller-Straße 92651 Reichenau an der Rax, Austria at the{" "}
+              Richard von Schoeller-Straße 9, 2651 Reichenau an der Rax, Austria at the{" "}
               <a
                 href="https://www.commons-hub.at/"
                 target="_blank"

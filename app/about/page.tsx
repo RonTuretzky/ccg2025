@@ -1,7 +1,60 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from 'lucide-react'
+import { SprawlingKeywordsOverlay } from "@/components/sprawling-keywords-overlay"
+
+const allKeywords = [
+  "cybernetics",
+  "hope",
+  "ambiguous design systems",
+  "value discovery network",
+  "economic media",
+  "communal computing",
+  "ketamine",
+  "emotive interactions",
+  "computational media",
+  "tools for thought",
+  "cryptographic ownership",
+  "post-capitalist economic design",
+  "solidarity protocols",
+  "algorithmic justice",
+  "decentralized autonomy",
+  "artivist collectives",
+  "mutual aid ledgers",
+  "regenerative finance",
+  "cooperative AI",
+  "sexual harm prevention crypto",
+  "techno-utopian dreaming",
+  "mesh network commons",
+  "open-source cooperativism",
+  "intersectional futurism",
+  "data soverignty",
+  "post collapse solarpunk",
+  "radical transparency",
+  "liquidity of care",
+  "civic hacktivism",
+  "post-cap-work ideation",
+  "community staking",
+  "tokenized solidarity",
+  "algorithmic mutualism",
+  "self sustanence logistics",
+  "networked abolition",
+  "commons utilities",
+  "third space tokenization",
+  "distributed decision tooling",
+  "divergent cooperative design",
+  "privacy normalization",
+  "eco-social computation",
+  "decolonial algorithms",
+  "participatory ontology",
+  "post crypto trustless culture",
+  "mindful machine learning",
+  "cooperative clouds",
+  "glitch aesthetics",
+]
 
 export default function AboutPage() {
   return (
@@ -17,6 +70,8 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-blue-950/60" />
       </div>
 
+      <SprawlingKeywordsOverlay keywords={allKeywords} />
+
       <main className="relative z-20 container mx-auto px-4 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto">
           <Link href="/">
@@ -29,7 +84,7 @@ export default function AboutPage() {
           <div className="bg-white/10 border border-gray-400/50 p-8 text-white rounded-lg backdrop-blur-sm">
             <h1 className="text-4xl sm:text-5xl font-bold text-white drop-shadow-lg mb-8">About CCG 2025</h1>
             
-            <div className="space-y-6 text-lg leading-relaxed">
+            <div className="space-y-6 text-lg text-gray-200 drop-shadow-md leading-relaxed">
               <p>
                 Among the events held at the Commons Hub, the Crypto Commons Gathering has always held a special place. What began in 2021 as a modest excuse for then-PhD researcher Felix Fritsch to bring together crypto-commons thinkerers from around the world in his own backyard has since evolved into an annual moment of (re)connection and reflection for a growing community, and for the many lived practices and experiments in commoning, degrowth, mutualism and post-capitalist economic worldbuilding it is linked to.
               </p>
@@ -55,7 +110,7 @@ export default function AboutPage() {
                 </li>
               </ul>
               
-              <h2 className="text-2xl font-bold mt-8 mb-4">What to expect</h2>
+              <h2 className="text-2xl font-bold text-white drop-shadow-lg mt-8 mb-4">What to expect</h2>
               
               <ul className="list-disc pl-6 space-y-3">
                 <li>

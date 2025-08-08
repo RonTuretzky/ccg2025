@@ -1,7 +1,60 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, MapPin, Train, Car, Plane } from 'lucide-react'
+import { SprawlingKeywordsOverlay } from "@/components/sprawling-keywords-overlay"
+
+const allKeywords = [
+  "cybernetics",
+  "hope",
+  "ambiguous design systems",
+  "value discovery network",
+  "economic media",
+  "communal computing",
+  "ketamine",
+  "emotive interactions",
+  "computational media",
+  "tools for thought",
+  "cryptographic ownership",
+  "post-capitalist economic design",
+  "solidarity protocols",
+  "algorithmic justice",
+  "decentralized autonomy",
+  "artivist collectives",
+  "mutual aid ledgers",
+  "regenerative finance",
+  "cooperative AI",
+  "sexual harm prevention crypto",
+  "techno-utopian dreaming",
+  "mesh network commons",
+  "open-source cooperativism",
+  "intersectional futurism",
+  "data soverignty",
+  "post collapse solarpunk",
+  "radical transparency",
+  "liquidity of care",
+  "civic hacktivism",
+  "post-cap-work ideation",
+  "community staking",
+  "tokenized solidarity",
+  "algorithmic mutualism",
+  "self sustanence logistics",
+  "networked abolition",
+  "commons utilities",
+  "third space tokenization",
+  "distributed decision tooling",
+  "divergent cooperative design",
+  "privacy normalization",
+  "eco-social computation",
+  "decolonial algorithms",
+  "participatory ontology",
+  "post crypto trustless culture",
+  "mindful machine learning",
+  "cooperative clouds",
+  "glitch aesthetics",
+]
 
 export default function DirectionsPage() {
   return (
@@ -16,6 +69,8 @@ export default function DirectionsPage() {
         />
         <div className="absolute inset-0 bg-blue-950/60" />
       </div>
+
+      <SprawlingKeywordsOverlay keywords={allKeywords} />
 
       <main className="relative z-20 container mx-auto px-4 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto">
@@ -35,7 +90,7 @@ export default function DirectionsPage() {
                 <div>
                   <h2 className="text-xl font-semibold mb-2">Address</h2>
                   <p className="text-lg">
-                    Richard von Schoeller-Straße 92651 Reichenau an der Rax, Austria at the{" "}
+                    Richard von Schoeller-Straße 9, 2651 Reichenau an der Rax, Austria at the{" "}
                     <a
                       href="https://www.commons-hub.at/"
                       target="_blank"
@@ -157,6 +212,20 @@ export default function DirectionsPage() {
                   <strong>Alternative:</strong> Rent a car at the airport for a direct 1.5-hour drive to Reichenau an der Rax.
                 </p>
               </div>
+            </div>
+
+            <div className="bg-green-500/20 border border-green-400/50 p-6 rounded-lg">
+              <h2 className="text-xl font-semibold mb-3">Need Help?</h2>
+              <p className="text-gray-200">
+                If you need assistance with directions or transportation, feel free to reach out to us at{" "}
+                <a href="mailto:cryptocommonsgathering@gmail.com" className="text-blue-400 underline hover:text-white">
+                  cryptocommonsgathering@gmail.com
+                </a>{" "}
+                or ask in the{" "}
+                <a href="https://t.me/+8a7PooNV6202YjI0" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-white">
+                  CCG25 Telegram group
+                </a>.
+              </p>
             </div>
           </div>
         </div>
